@@ -66,15 +66,16 @@ function updateCity(event) {
             citiesElement.appendChild(selectedCityElement);
         }
 
+        // Make sure the HTML structure matches the style of other cities
         selectedCityElement.innerHTML = `
-          <div class="city">
-            <div>
-              <h2>${cityName}</h2>
-              <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+            <div class="city">
+                <div>
+                    <h2>${cityName}</h2>
+                    <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
+                </div>
+                <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
             </div>
-            <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
-          </div>
-          <a href="/">All cities</a>
+            <a href="/" class="return-link">All cities</a>
         `;
     }
 
