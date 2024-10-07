@@ -1,3 +1,6 @@
+let selectedCityInterval;
+
+// Function to update time for Los Angeles, Paris, and Tokyo
 function updateTime() {
     // Los Angeles
     let losAngelesElement = document.querySelector("#los-angeles");
@@ -25,7 +28,7 @@ function updateTime() {
         );
     }
 
-    // Tokyo (new timezone)
+    // Tokyo
     let tokyoElement = document.querySelector("#tokyo");
     if (tokyoElement) {
         let tokyoDateElement = tokyoElement.querySelector(".date");
@@ -38,8 +41,8 @@ function updateTime() {
         );
     }
 }
-let selectedCityInterval;
 
+// Function to update the selected city
 function updateCity(event) {
     clearInterval(selectedCityInterval);  // Clear any previous intervals
 
@@ -79,5 +82,10 @@ function updateCity(event) {
     selectedCityInterval = setInterval(updateSelectedCityTime, 1000);  // Update every second
 }
 
+// Update times every second
+updateTime();
+setInterval(updateTime, 1000);
+
+// Add event listener for the dropdown selection
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
